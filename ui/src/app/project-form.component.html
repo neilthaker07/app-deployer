@@ -1,0 +1,24 @@
+<div class="container">
+    <h1>Project Form</h1>
+    <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
+      <div class="form-group">
+        <label for="name">Project Name</label>
+        <input type="text" class="form-control" id="name" required  [(ngModel)]="model.name" name="name">
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Git Url</label>
+        <input type="text" class="form-control" id="gitUrl" required  [(ngModel)]="model.gitUrl" name="gitUrl">
+      </div>
+      <button type="submit" class="btn btn-success" >Submit</button>
+      {{model.name}}   {{model.gitUrl}}
+    </form>
+
+
+    <h2>My Heroes</h2>
+    <ul class="projects">
+      <li *ngFor="let project of projects"
+        >
+        <span class="badge">{{project.id}}</span> {{project.name}} {{project.gitUrl}}
+      </li>
+    </ul>
+</div>

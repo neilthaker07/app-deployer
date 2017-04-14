@@ -1,2 +1,15 @@
-
 publisher.pyc
+.idea
+node_modules
+jspm_packages
+npm-debug.log
+debug.log
+ui/src/**/*.js
+!ui/src/systemjs.config.extras.js
+!ui/src/systemjs.config.js
+!ui/src/systemjs-angular-loader.js
+*.js.map
+e2e/**/*.js
+e2e/**/*.js.map
+_test-output
+_temp
