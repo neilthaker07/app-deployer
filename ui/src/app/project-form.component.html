@@ -1,24 +1,37 @@
-<div class="container">
-    <h1>Project Form</h1>
-    <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
-      <div class="form-group">
-        <label for="name">Project Name</label>
-        <input type="text" class="form-control" id="name" required  [(ngModel)]="model.name" name="name">
+
+    <form (ngSubmit)="onSubmit()" #projectForm="ngForm" id="contactForm">
+
+      <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" placeholder="Name" id="name" [(ngModel)]="model.name" name="name" required data-validation-required-message="Please enter your name.">
+              <p class="help-block text-danger"></p>
+          </div>
       </div>
-      <div class="form-group">
-        <label for="alterEgo">Git Url</label>
-        <input type="text" class="form-control" id="gitUrl" required  [(ngModel)]="model.gitUrl" name="gitUrl">
+
+      <div class="row control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+              <label for="name">Git Url</label>
+              <input type="text" class="form-control" placeholder="Git-URl" id="name" [(ngModel)]="model.gitUrl" name="gitUrl" required data-validation-required-message="Please enter your git URL.">
+              <p class="help-block text-danger"></p>
+          </div>
       </div>
-      <button type="submit" class="btn btn-success" >Submit</button>
-      {{model.name}}   {{model.gitUrl}}
+      <br>
+      <div id="success"></div>
+      <div class="row">
+          <div class="form-group col-xs-12">
+              <button type="submit" class="btn btn-success btn-lg">Save</button>
+          </div>
+      </div>
+
+
     </form>
 
 
-    <h2>My Heroes</h2>
+
     <ul class="projects">
       <li *ngFor="let project of projects"
         >
         <span class="badge">{{project.id}}</span> {{project.name}} {{project.gitUrl}}
       </li>
     </ul>
-</div>
