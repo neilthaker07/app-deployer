@@ -27,16 +27,24 @@ def userSignUp():
 def userlogin():
 	if request.method == 'POST':
 		user = UserInfo(request)
-		user.validateUser(request)		
-		
+		#user.validateUser(request)		
+		return "this"
 
-@app.route("/v1/userlogin/addProject", methods=['POST','GET'])
+
+
+@app.route("/v1/userlogin/addProject", methods=['POST'])
 def userInput():
-	project =  Project(request)
+	project = Project(request)
 	if request.method == 'POST':
 		project.InsertProject()
-	else:
-		return project.ViewProjects()
+		return "ok"
+
+@app.route("/v1/userlogin/viewProject/<username>", methods=['GET'])
+def viewProjects(username):
+	project = Project(request, username)
+	project.ViewProjects()
+	return "viewing"
+
 
 @app.route("/v1/userlogin/UpdateProject", methods=['PUT'])
 def update():

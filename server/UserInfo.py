@@ -21,28 +21,32 @@ class UserInfo:
     def insertUser(self):
         cur = self.database.cursor()
         if self.validateUser:
-            print "this is true"   
+            print "this is true"
+              
         else:  
             query = """INSERT INTO app_deployer_db.user (user_name,user_pass) VALUES (%s,%s)"""
             cur.execute(query,(self.username, self.password))
+        self.database.commit()
+        self.database.close()
         
 
         
     def validateUser(self):
         cur = self.database.cursor()
-        query="""SELECT COUNT(user_name) FROM app_deployer_db.user WHERE user_name = %s"""
+        query="""SELECT * FROM app_deployer_db.user WHERE user_name = %s"""
         cur.execute(query,(self.username,))
         data=cur.fetchone()
         if data[0]==1:
-            print "this is true" 
-            return "true"  
+            print "this is true"
+              
         else:  
             print "false"
-            return "false"
+        self.database.commit()
+        self.database.close()    
+            
 
 
-self.database.commit()
-self.database.close()
+    
      
 
 
