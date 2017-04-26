@@ -13,8 +13,8 @@ app = Flask(__name__)
 def userSignup():
 	if request.method == 'POST':
 		user = UserInfo(request)
-		user.insertUser()
-		return "HEEEEHHAAAA SIGNUP"
+		return user.insertUser()
+		#return "HEEEEHHAAAA SIGNUP"
 
 @app.route("/v1/userLogin",methods=['POST'])
 def userLogin():
@@ -34,6 +34,7 @@ def createAndViewProjects(user_name):
 		return viewProjects.ViewProjectsMethod()
 		#return "HEEEEHHAAAA PROJECTS VIEW"
 
+# Dependent on UI
 @app.route("/v1/<user_name>/projects/<project_id>",methods=['PUT','GET','DELETE'])
 def viewUpdateDeleteProject(user_name, project_id):
 	if request.method == 'GET':
@@ -50,4 +51,4 @@ def viewUpdateDeleteProject(user_name, project_id):
 		return "HEEEEHHAAAA PROJECT UPDATE SPECIFIC"
 
 if __name__ == "__main__":
-	app.run(debug=True,host='0.0.0.0')
+	app.run(debug=True,host='0.0.0.0',port=3005)

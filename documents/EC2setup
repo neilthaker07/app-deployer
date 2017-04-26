@@ -1,0 +1,44 @@
+EC2 instance commands :
+
+98  mysql -u root -p 
+   99  ls
+  100  sudo mkdir cmpe_273
+  101  ls
+  102  cd cmpe_273/
+  103  ls
+  104  git clone https://github.com/rashmishrm/app-deployer.git
+  105  sudo apt-get install git
+  106  sudo yum install git
+  107  git clone https://github.com/rashmishrm/app-deployer.git
+  108  ls
+  109  sudo git clone https://github.com/rashmishrm/app-deployer.git
+  110  ls
+  111  cd app-deployer/
+  112  ls
+  113  cd server/
+  114  ls
+  115  cd crud_api/
+  116  ls
+  117  python rest_python.py 
+  118  sudo pip install flask
+  120  sudo pip install mysql
+  122  sudo pip install mysql-connector
+  125  sudo yum install mysql-connector-python
+  126  python rest_python.py 
+  127  sudo pip install mysql-connector-python
+  128  sudo yum update
+  129  sudo pip install mysql-connector
+  130  python rest_python.py 
+  131  sudo yum update mysql-community-release
+  132  sudo yum install mysql-connector-python
+  145  sudo pip search mysql-connector | grep --color mysql-connector-python
+  146  sudo pip install mysql-connector-python-rf
+  147  sudo  wget http://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-2.0.4.zip#md5=3df394d89300db95163f17c843ef49df
+  148  sudo  unzip mysql-connector-python-2.0.4.zip
+  149   cd mysql-connector-python-2.0.4
+  150   sudo python3 setup.py install
+  151  sudo yum install python3
+  152   sudo python3 setup.py install
+  153   sudo python setup.py install
+  154  cd ..
+  155  python rest_python.py
