@@ -51,4 +51,4 @@ def viewUpdateDeleteProject(user_name, project_id):
 		return "HEEEEHHAAAA PROJECT UPDATE SPECIFIC"
 
 if __name__ == "__main__":
-	app.run(debug=True,host='0.0.0.0',3005)
+	app.run(debug=True,host='0.0.0.0',port=3005)

@@ -20,4 +20,4 @@ def deploy_app():
 
 
 if __name__ == "__main__":
-    app.run(debug=True,host='0.0.0.0',3007)
+    app.run(debug=True,host='0.0.0.0',port=3007)
