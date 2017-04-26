@@ -19,6 +19,7 @@ class ViewProjects:
       objects_list = []
       for row in rows:
         d = collections.OrderedDict()
+        d['project_id'] = row[0]
         d['project_name'] = row[1]
         d['project_url'] = row[2]
         objects_list.append(d)
