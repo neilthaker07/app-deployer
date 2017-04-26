@@ -20,8 +20,8 @@ def userSignup():
 def userLogin():
 	if request.method == 'POST':
 		user = UserInfo(request)
-		user.loginUser()
-		return "HEEEEHHAAAA LOGIN"
+		return user.loginUser()
+		#return "HEEEEHHAAAA LOGIN"
 
 @app.route("/v1/<user_name>/projects",methods=['POST','GET'])
 def createAndViewProjects(user_name):
