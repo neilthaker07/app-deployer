@@ -21,10 +21,11 @@ class UserInfo:
         row = cursor.fetchone()
         if row is not None:
             print 'pls select another name'
+            return 'pls select another name'
         else:
             insertQuery = """INSERT INTO user (user_name, user_pass) VALUES (%s,%s)"""
             cursor.execute(insertQuery, (self.username, self.password))
-            print 'user created'
+            return 'user created'
         cnx.commit()
         cursor.close()
         cnx.close()
