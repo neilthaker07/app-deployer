@@ -1,0 +1,8 @@
+ * Running on http://0.0.0.0:3007/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 376-701-495
+130.65.254.16 - - [26/Apr/2017 22:52:08] "GET / HTTP/1.1" 200 -
+130.65.254.16 - - [26/Apr/2017 22:52:08] "GET /favicon.ico HTTP/1.1" 404 -
+130.65.254.16 - - [26/Apr/2017 22:53:31] "GET / HTTP/1.1" 200 -
+130.65.254.16 - - [26/Apr/2017 22:56:29] "POST /v1/userSignup HTTP/1.1" 404 -

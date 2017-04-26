@@ -1,0 +1,37 @@
+ * Running on http://0.0.0.0:3005/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 376-701-495
+130.65.254.16 - - [26/Apr/2017 22:52:01] "GET / HTTP/1.1" 404 -
+130.65.254.16 - - [26/Apr/2017 22:52:02] "GET /favicon.ico HTTP/1.1" 404 -
+130.65.254.16 - - [26/Apr/2017 22:57:03] "POST /v1/userSignup HTTP/1.1" 400 -
+130.65.254.16 - - [26/Apr/2017 22:57:16] "POST /v1/userSignup HTTP/1.1" 200 -
+130.65.254.16 - - [26/Apr/2017 22:59:43] "POST /v1/rash/projects HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ec2-user/cmpe_273/app-deployer/server/crud_api/rest_python.py", line 30, in createAndViewProjects
+    projects.InsertProject()
+  File "/home/ec2-user/cmpe_273/app-deployer/server/crud_api/Projects.py", line 26, in InsertProject
+    cursor.execute(query, (self.username,self.projectName, self.project_URL, self.topic))
+  File "/usr/local/lib/python2.7/site-packages/mysql/connector/cursor.py", line 507, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "/usr/local/lib/python2.7/site-packages/mysql/connector/connection.py", line 722, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "/usr/local/lib/python2.7/site-packages/mysql/connector/connection.py", line 640, in _handle_result
+    raise errors.get_exception(packet)
+IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`app_deployer_db`.`project`, CONSTRAINT `project_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`))
