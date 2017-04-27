@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-from flask import json
+from flask import request,render_template,send_file,send_from_directory
 from UserInfo import UserInfo
 from Projects import Projects
 from Project import Project
@@ -49,6 +49,14 @@ def viewUpdateDeleteProject(user_name, project_id):
 		updateProject = UpdateProject(request, project_id)
 		updateProject.UpdateProjectSpecific()
 		return "HEEEEHHAAAA PROJECT UPDATE SPECIFIC"
+
+@app.route("/")
+def index():
+   return send_file("ui/index.html")
+
+@app.route("/ui/<path:path>")
+def file(path):
+   return send_from_directory("ui",path)
 
 if __name__ == "__main__":
 	app.run(debug=True,host='0.0.0.0',port=3005)
