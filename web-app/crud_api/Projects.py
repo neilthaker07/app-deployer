@@ -17,7 +17,7 @@ class Projects:
         self.project_URL = self.jsonObject['projectUrl']
         self.username=username
         self.topic = self.projectName + str(datetime.datetime.now())
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        self.database = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
 
     # insert new project
     def InsertProject(self):
