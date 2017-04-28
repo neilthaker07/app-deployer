@@ -11,7 +11,7 @@ config(function($routeProvider) {
     })
     .when("/allprojects", {
       templateUrl: 'ui/partials/viewAllProjects.html',
-      controller: 'AddProjectController'
+      controller: 'ViewAllProjectsController'
     })
     .when("/create", {
       templateUrl: 'ui/partials/addProject.html',

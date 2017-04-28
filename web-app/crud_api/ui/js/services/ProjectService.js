@@ -4,6 +4,10 @@ angular.module('AppDeployerDashboard')
   this.addProject = function(projectName, gitURL) {
     alert("Adding project "+ projectName + " " +gitURL);
     //todo: Add http post to add a project
-  }
+  };
+
+  this.getProject = function() {
+    alert("Get projects..");
+  };
 
 });
