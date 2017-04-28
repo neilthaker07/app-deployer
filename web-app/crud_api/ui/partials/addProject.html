@@ -1,0 +1,35 @@
+<!-- Contact Section -->
+<section id="create">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Add Project</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <form data-toggle="validator" role="form" ng-submit="addProject()" >
+  <div class="form-group">
+    <label for="projectName" class="control-label">Project Name</label>
+    <input type="text" class="form-control" id="projectName" placeholder="Project Name" ng-model="projectName" required>
+  </div>
+  <div class="form-group">
+    <label for="githubURL" class="control-label">Github URL</label>
+    <input type="url" class="form-control" id="githubURL" placeholder="Github URL" data-error="Enter a valid URL" ng-model="githubURL" required>
+    <div class="help-block with-errors"></div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
