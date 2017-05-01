@@ -18,11 +18,10 @@ class Projects:
         self.username=username
         print self.username
         self.topic = self.projectName + str(datetime.datetime.now())
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        self.database = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
 
     # insert new project
     def InsertProject(self):
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')  
         cursor = self.database.cursor()
         try:
             query = """INSERT INTO project (user_name,project_name,project_url,topic) VALUES (%s,%s,%s,%s)"""

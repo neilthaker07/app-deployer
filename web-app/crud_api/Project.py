@@ -10,7 +10,7 @@ class Project:
     def __init__(self, user_name,project_id):
         self.user_name=user_name
         self.project_id=project_id
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')        
+        self.database = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')        
 
     def ViewProjectSpecific(self):
       cursor = self.database.cursor()

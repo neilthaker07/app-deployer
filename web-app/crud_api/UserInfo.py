@@ -6,15 +6,15 @@ class UserInfo:
     password=None
     database=None
     jsonObject=None
-    
+
     def __init__(self,requestJson):
         jsonObject=requestJson.get_json()
         self.username = jsonObject['username']
         self.password =  jsonObject['password']
-    
+
     #signup
     def insertUser(self):
-        cnx = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        cnx = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
         cursor = cnx.cursor()
         query = """SELECT * FROM user WHERE user_name = %s"""
         cursor.execute(query, (self.username,))
@@ -34,7 +34,7 @@ class UserInfo:
         return '201'
     #login
     def loginUser(self):
-        cnx = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        cnx = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
         cursor = cnx.cursor()
         try:
             query = """SELECT * FROM user WHERE user_name = %s AND user_pass=%s"""
