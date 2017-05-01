@@ -1,6 +1,7 @@
 import mysql.connector
 from flask import json
 import collections
+import DbConstants
 
 class ViewProjects:
     username=None
@@ -11,7 +12,7 @@ class ViewProjects:
         #self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')        
 
     def ViewProjectsMethod(self):
-      cnx=mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db') 
+      cnx=mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE) 
       cursor = cnx.cursor()
       try:
         query = """SELECT * FROM project WHERE user_name=%s"""
