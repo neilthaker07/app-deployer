@@ -2,12 +2,14 @@ import mysql.connector
 from flask import json
 
 class UpdateProject:
+    user_name=None
     project_id=None
     projectName = None
     projectURL = None
     database=None
 
-    def __init__(self, requestJson, project_id):
+    def __init__(self,user_name,requestJson,project_id):
+        self.user_name=user_name
         self.jsonObject=requestJson.get_json()
         self.projectName =self.jsonObject['projectName']
         self.projectURL = self.jsonObject['projectUrl']
@@ -15,10 +17,17 @@ class UpdateProject:
         self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
 
     def UpdateProjectSpecific(self):
-      cursor = self.database.cursor()
-      query = """UPDATE project SET project_name=%s,project_url=%s WHERE project_id=%s"""
-      cursor.execute(query, (self.projectName, self.projectURL, self.project_id))
-      self.database.commit()
-      cursor.close()
-      self.database.close()
-      print 'update specific project of user'
+        cursor = self.database.cursor()
+        try:
+            query = """UPDATE project SET project_name=%s,project_url=%s WHERE user_name=%s AND project_id=%s"""
+            cursor.execute(query, (self.projectName, self.projectURL,self.user_name, self.project_id))
+            self.database.commit()
+            result='ok'
+        except mysql.connector.Error as err:
+            cursor.close()
+            self.database.close()
+            return "err"
+        cursor.close()
+        self.database.close()
+        return result
+      

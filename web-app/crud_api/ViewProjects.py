@@ -8,14 +8,20 @@ class ViewProjects:
 
     def __init__(self, username):
         self.username=username
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')        
+        #self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')        
 
     def ViewProjectsMethod(self):
-      cursor = self.database.cursor()
-      query = """SELECT * FROM project WHERE user_name=%s"""
-      cursor.execute(query,(self.username,))
-      print 'view all projects of user'
-      rows = cursor.fetchall()
+      cnx=mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db') 
+      cursor = cnx.cursor()
+      try:
+        query = """SELECT * FROM project WHERE user_name=%s"""
+        cursor.execute(query,(self.username,))
+        print 'view all projects of user'
+        rows = cursor.fetchall()
+      except mysql.connector.Error as err:
+        cursor.close()
+        cnx.close()
+        return err
       objects_list = []
       for row in rows:
         d = collections.OrderedDict()
@@ -24,6 +30,7 @@ class ViewProjects:
         d['project_url'] = row[2]
         objects_list.append(d)
       j = json.dumps(objects_list)
+      print j
       cursor.close()
-      self.database.close()
+      cnx.close()
       return j
