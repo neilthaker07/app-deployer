@@ -1,6 +1,7 @@
 import mysql.connector
 from flask import json
 import collections
+import DbConstants
 
 class Project:
     project_id=None
@@ -10,7 +11,7 @@ class Project:
     def __init__(self, user_name,project_id):
         self.user_name=user_name
         self.project_id=project_id
-        self.database = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')        
+        self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
 
     def ViewProjectSpecific(self):
       cursor = self.database.cursor()
