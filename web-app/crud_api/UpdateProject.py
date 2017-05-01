@@ -1,5 +1,6 @@
 import mysql.connector
 from flask import json
+import DbConstants
 
 class UpdateProject:
     user_name=None
@@ -14,7 +15,7 @@ class UpdateProject:
         self.projectName =self.jsonObject['projectName']
         self.projectURL = self.jsonObject['projectUrl']
         self.project_id=project_id
-        self.database = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
 
     def UpdateProjectSpecific(self):
         cursor = self.database.cursor()
