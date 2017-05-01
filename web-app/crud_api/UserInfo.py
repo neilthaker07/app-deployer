@@ -1,5 +1,6 @@
 import mysql.connector
 from flask import json
+import DbConstants
 
 class UserInfo:
     username=None
@@ -14,7 +15,7 @@ class UserInfo:
 
     #signup
     def insertUser(self):
-        cnx = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
+        cnx = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = cnx.cursor()
         query = """SELECT * FROM user WHERE user_name = %s"""
         cursor.execute(query, (self.username,))
