@@ -35,7 +35,7 @@ class UserInfo:
         return '201'
     #login
     def loginUser(self):
-        cnx = mysql.connector.connect(user='root', passwd='root', host='52.52.67.116', database='app_deployer_db')
+        cnx = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = cnx.cursor()
         try:
             query = """SELECT * FROM user WHERE user_name = %s AND user_pass=%s"""
@@ -55,11 +55,11 @@ class UserInfo:
         cnx.commit()
         cursor.close()
         cnx.close()
-        return self.username
+        return result
 
 
     def get_user_id(self):
-        cnx = mysql.connector.connect(user='root', passwd='root', host='localhost', database='app_deployer_db')
+        cnx = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = cnx.cursor()
         query = """SELECT user_name FROM user WHERE user_name = %s AND user_pass=%s"""
         cursor.execute(query, (self.username, self.password))

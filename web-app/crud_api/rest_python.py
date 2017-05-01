@@ -55,10 +55,10 @@ def viewUpdateDeleteProject(user_name,project_id):
 	if request.method == 'GET':
 		project = Project(user_name,project_id)
 		result =project.ViewProjectSpecific()
-		if(result!="err"):
-			return jsonify({'response':result})
+		if(result=="err"):
+			return jsonify({'response':result}),500
 		else:
-			return jsonify({'response':'error in connecting to db'}),500 #Is this true?
+			return jsonify({'response':result})
 	elif request.method == 'DELETE':
 		project = Project(user_name,project_id)
 		result=project.DeleteProjectSpecific()
@@ -73,6 +73,12 @@ def viewUpdateDeleteProject(user_name,project_id):
 			return jsonify({'response': result})
 		return jsonify({'response': "error"}),500
 
+# @app.route("/v1/<user_name>/projects/<project_url>")
+# def get_project_details(usr_name,project_url):
+# 	project = Project(user_name,project_url)
+# 	result = project.get_project_details()
+
+
 
 @app.route("/")
 def index():
@@ -82,17 +88,7 @@ def index():
 def file(path):
    return send_from_directory("ui",path)
 
-if __name__ == "__main__":
-	app.run(debug=True,host='0.0.0.0',port=3005)
-
-
-@app.route("/")
-def index():
-   return send_file("index.html")
-
-@app.route("/ui/<path:path>")
-def file(path):
-   return send_from_directory("ui",path)
 
 if __name__ == "__main__":
-	app.run(debug=True,host='0.0.0.0',port=3005)
+	app.run(debug=True,host='0.0.0.0')
+

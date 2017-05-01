@@ -1,4 +1,4 @@
 USER ='root'
 PASSWORD ='root'
-HOST='52.52.67.116'
+HOST='0.0.0.0'
 DATABASE='app_deployer_db'

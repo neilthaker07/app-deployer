@@ -8,6 +8,7 @@ class Project:
     database=None
     user_name=None
 
+
     def __init__(self, user_name,project_id):
         self.user_name=user_name
         self.project_id=project_id
@@ -17,19 +18,20 @@ class Project:
       cursor = self.database.cursor()
       try:
         query = """SELECT * FROM project WHERE user_name=%s AND project_id=%s"""
-        cursor.execute(query,(self.project_id,self.user_name))
+        cursor.execute(query,(self.user_name,self.project_id))
+        row = cursor.fetchone()
       #print 'view specific project of user'
       except mysql.connector.Error as err:
         cursor.close()
         self.database.close()
         return "err"
-      row = cursor.fetchone()
       objects_list = []
       # d = collections.OrderedDict()
       # d['project_name'] = row[1]
       # d['project_url'] = row[2]
       # objects_list.append(d)
       # j = json.dumps(objects_list)
+      print row
       cursor.close()
       self.database.close()
       return row
@@ -47,3 +49,6 @@ class Project:
       cursor.close()
       self.database.close()
       return 'ok'
+    
+    # def get_project_details():
+
