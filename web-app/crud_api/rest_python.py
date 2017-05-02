@@ -29,7 +29,7 @@ def userLogin():
 		elif(result =="true"):
 			return jsonify({'response':'ok'})
 		else:
-			return jsonify({'response':'user name or password incorrect'})
+			return jsonify({'response':'user name or password incorrect'}), 401
 
 #never give 404??
 #This return project_id to the user
