@@ -1,7 +1,7 @@
 angular.module('AppDeployerDashboard')
 .service('UserService', function($http) {
 
-  var userName = 'rash';
+  var userName = 'nishant';
 
   this.getUserName = function() {
     return userName;

@@ -13,7 +13,7 @@
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                 <table class="table table-hover">
                   <tr><th>Project Name</th><th>Github URL</th><th>Actions</th></tr>
-                  <tr><td>Project1</td><td>http://github.com</td><td><i class="fa fa-edit"></i> <i class="fa fa-trash"></i> <i class="fa fa-eye"></i></td></tr>
+                  <tr ng-repeat="project in projectsList"><td>{{project.project_name}}</td><td>{{project.project_url}}</td><td><i class="fa fa-edit"></i> <i class="fa fa-trash"></i> <i class="fa fa-eye"></i></td></tr>
                 </table>
             </div>
         </div>

@@ -7,7 +7,7 @@ angular.module('AppDeployerDashboard')
   };
 
   this.getProject = function() {
-    alert("Get projects for user " + UserService.getUserName());
+    return $http.get("/v1/" + UserService.getUserName() + "/projects");
   };
 
 });
