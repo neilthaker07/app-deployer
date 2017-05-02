@@ -17,7 +17,7 @@ def userSignup():
 		if(result == '201'):
 			user_id = user.get_user_id()
 			return jsonify({'response': user_id }), 201
-		return result #here the result is not json , not sure how to return the response here (should it be json?)
+		return result, 400 #here the result is not json , not sure how to return the response here (should it be json?)
 
 @app.route("/v1/userLogin",methods=['POST'])
 def userLogin():

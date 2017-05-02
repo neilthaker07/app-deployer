@@ -15,4 +15,8 @@ angular.module('AppDeployerDashboard')
     return $http.post("/v1/userLogin",{"username":username, "password":password});
   };
 
+  this.register = function(username, password) {
+    return $http.post("/v1/userSignup",{"username":username, "password":password});
+  };
+
 });

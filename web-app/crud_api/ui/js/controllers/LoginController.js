@@ -11,4 +11,8 @@ angular.module('AppDeployerDashboard')
    });
  };
 
+$scope.newUser = function(){
+  $location.path('newUser');
+}
+
 });

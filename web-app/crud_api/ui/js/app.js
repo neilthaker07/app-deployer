@@ -9,6 +9,10 @@ config(function($routeProvider) {
       templateUrl: 'ui/partials/login.html',
       controller: 'LoginController'
     })
+    .when("/newUser", {
+      templateUrl: 'ui/partials/newUser.html',
+      controller: 'NewUserController'
+    })
     .when("/allprojects", {
       templateUrl: 'ui/partials/viewAllProjects.html',
       controller: 'ViewAllProjectsController'
@@ -16,6 +20,10 @@ config(function($routeProvider) {
     .when("/create", {
       templateUrl: 'ui/partials/addProject.html',
       controller: 'AddProjectController'
+    })
+    .otherwise({
+      templateUrl: 'ui/partials/login.html',
+      controller: 'LoginController'
     });
 })
 .run(function($rootScope, UserService, $location) {
@@ -23,7 +31,7 @@ config(function($routeProvider) {
     $location.path('/');
   }
   $rootScope.$on('$routeChangeStart', function(next, current) {
-   if (!UserService.getUserName()) {
+     if ($location.path()!='/newUser' && !UserService.getUserName()) {
      $location.path('/');
    }
  });
