@@ -1,9 +1,0 @@
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 376-701-495
- * Detected change in '/home/ec2-user/cmpe_273/app-deployer/server/crud_api/UserInfo.py', reloading
- * Restarting with stat
-  File "rest_python.py", line 54
-    app.run(debug=True,host='0.0.0.0',3005)
-SyntaxError: non-keyword arg after keyword arg

@@ -1,0 +1,37 @@
+ * Running on http://0.0.0.0:3005/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 376-701-495
+130.65.254.7 - - [03/May/2017 23:00:12] "GET / HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/css/freelancer.min.css HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/services/UserService.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/app.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/services/ProjectService.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/MainController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/ViewProjectController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/NewUserController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/AddProjectController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/LoginController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/js/controllers/ViewAllProjectsController.js HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/partials/login.html HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /ui/vendor/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:00:12] "GET /favicon.ico HTTP/1.1" 404 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET / HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/css/freelancer.min.css HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/vendor/bootstrap/css/bootstrap.min.css HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/vendor/font-awesome/css/font-awesome.min.css HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/app.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/services/ProjectService.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/services/UserService.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/MainController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/AddProjectController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/LoginController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/NewUserController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/ViewProjectController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/js/controllers/ViewAllProjectsController.js HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/vendor/font-awesome/fonts/fontawesome-webfont.woff2?v=4.6.3 HTTP/1.1" 200 -
+130.65.254.11 - - [03/May/2017 23:00:46] "GET /ui/partials/login.html HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:05:16] "GET / HTTP/1.1" 200 -
+130.65.254.7 - - [03/May/2017 23:10:46] "GET / HTTP/1.1" 200 -
