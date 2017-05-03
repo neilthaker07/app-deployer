@@ -14,7 +14,8 @@ def hello():
 @app.route("/v1/git-updates", methods=['POST'])
 def deploy_app():
     request_json=request.get_json() ;
-    git_url=request_json['git_url'];
+    repository=request_json['repository'];
+    git_url=repository['url'];
     publisher.publish(git_url);
     return "sent-update"
 

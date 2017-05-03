@@ -35,3 +35,20 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/mysql/connector/connection.py", line 640, in _handle_result
     raise errors.get_exception(packet)
 IntegrityError: 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`app_deployer_db`.`project`, CONSTRAINT `project_ibfk_1` FOREIGN KEY (`user_name`) REFERENCES `user` (`user_name`))
+ * Detected change in '/home/ec2-user/cmpe_273/app-deployer/server/crud_api/ViewProjects.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 376-701-495
+130.65.254.16 - - [26/Apr/2017 23:23:35] "POST /v1/userSignup HTTP/1.1" 200 -
+130.65.254.16 - - [26/Apr/2017 23:23:39] "POST /v1/rash/projects HTTP/1.1" 200 -
+130.65.254.7 - - [26/Apr/2017 23:26:43] "POST /v1/userSignup HTTP/1.1" 200 -
+130.65.254.16 - - [26/Apr/2017 23:40:57] "GET / HTTP/1.1" 404 -
+130.65.254.16 - - [26/Apr/2017 23:41:13] "GET /v1/rash/projects HTTP/1.1" 200 -
+130.65.254.7 - - [26/Apr/2017 23:43:38] "GET /v1/rash/projects HTTP/1.1" 200 -
+130.65.254.7 - - [26/Apr/2017 23:50:09] "GET /v1/rash/projects HTTP/1.1" 200 -
+69.181.119.33 - - [29/Apr/2017 06:47:34] "GET /login HTTP/1.1" 404 -
+69.181.119.33 - - [29/Apr/2017 06:47:34] "GET / HTTP/1.1" 404 -
+69.181.119.33 - - [29/Apr/2017 06:47:35] "GET /favicon.ico HTTP/1.1" 404 -
+69.181.119.33 - - [29/Apr/2017 06:48:41] "GET /v1/rash/projects HTTP/1.1" 200 -
+73.170.88.199 - - [03/May/2017 05:27:29] "GET / HTTP/1.1" 404 -
+73.170.88.199 - - [03/May/2017 05:27:29] "GET /favicon.ico HTTP/1.1" 404 -

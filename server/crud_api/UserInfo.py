@@ -25,10 +25,10 @@ class UserInfo:
         else:
             insertQuery = """INSERT INTO user (user_name, user_pass) VALUES (%s,%s)"""
             cursor.execute(insertQuery, (self.username, self.password))
+            cnx.commit()
+            cursor.close()
+            cnx.close()
             return 'user created'
-        cnx.commit()
-        cursor.close()
-        cnx.close()
 
     #login
     def loginUser(self):
@@ -44,3 +44,4 @@ class UserInfo:
         cnx.commit()
         cursor.close()
         cnx.close()
+        return self.username

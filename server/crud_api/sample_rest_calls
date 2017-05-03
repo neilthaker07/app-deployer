@@ -1,0 +1,13 @@
+http://52.52.67.116:3005/v1/userSignup
+
+{
+	"username":"rash",
+	"password":"1234"
+}
+
+http://0.0.0.0:3005/v1/rash/projects
+
+{
+	"projectName":"project_1_pi",
+	"projectUrl":"project1_url.git.com"
+}
