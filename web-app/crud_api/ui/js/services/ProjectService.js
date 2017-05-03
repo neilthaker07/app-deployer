@@ -10,4 +10,8 @@ angular.module('AppDeployerDashboard')
     return $http.get("/v1/" + UserService.getUserName() + "/projects");
   };
 
+  this.getProjectDetails = function(projectId) {
+    return $http.get("/v1/" + UserService.getUserName() + "/projects/" + projectId);
+  };
+
 });
