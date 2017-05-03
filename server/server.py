@@ -16,6 +16,7 @@ def deploy_app():
     request_json=request.get_json() ;
     repository=request_json['repository'];
     git_url=repository['url'];
+
     publisher.publish(git_url);
     return "sent-update"
 

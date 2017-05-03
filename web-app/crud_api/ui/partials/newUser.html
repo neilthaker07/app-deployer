@@ -1,0 +1,38 @@
+<!-- Contact Section -->
+<section id="create">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Register</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                <form data-toggle="validator" role="form" ng-submit="register()" >
+  <div class="form-group">
+    <label for="unm" class="control-label">User Name</label>
+    <input type="text" class="form-control" id="unm" placeholder="User Name" ng-model="unm" required>
+  </div>
+  <div class="form-group">
+    <label for="pwd" class="control-label">Password</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="pwd" required>
+    <div class="help-block with-errors"></div>
+  </div>
+  <div class="form-group">
+    <button type="button" ng-click="alreadyRegistered()" class="btn btn-warning">Already registered?</button>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <br><br>
+    <div ng-if="registerFailureMessage" class="alert alert-danger"><span>{{registerFailureMessage}}</span></div>
+  </div>
+</form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
