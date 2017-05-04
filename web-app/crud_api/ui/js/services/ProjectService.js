@@ -2,7 +2,7 @@ angular.module('AppDeployerDashboard')
 .service('ProjectService', function($http, UserService) {
 
   this.addProject = function(projectName, gitURL) {
-    alert("Adding project "+ projectName + " " +gitURL + " for user " + UserService.getUserName());
+    return $http.post("/v1/" + UserService.getUserName() + "/projects", {"projectName":projectName, "projectUrl":gitURL});
     //todo: Add http post to add a project
   };
 

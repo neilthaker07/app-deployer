@@ -35,7 +35,7 @@ class Projects:
             self.database.close()
             return err
     def get_project_id(self):
-        self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)  
+        self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = self.database.cursor()
         query = """SELECT project_id FROM project WHERE user_name = %s AND project_URL=%s"""
         cursor.execute(query, (self.username,self.project_URL))
