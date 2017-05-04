@@ -3,6 +3,9 @@ App-deployer is python based app for deploying git code on IOT devices automatic
 
 Track progress using : https://waffle.io/rashmishrm/app-deployer
 
+# Architecture
+
+![My Image](https://github.com/rashmishrm/app-deployer/blob/master/documents/architecture.png)
 
 # Application URL:
 http://52.52.67.116:3005/#!/
@@ -12,5 +15,3 @@ http://52.52.67.116:3005/#!/
 http://52.52.67.116:3007/v1/git-updates
 
 ![My Image](https://github.com/rashmishrm/app-deployer/blob/master/webhook.png)
-
-
