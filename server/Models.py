@@ -31,7 +31,10 @@ class Deployment:
             query = """INSERT INTO deployment (agent_id,status) VALUES (%s,%s)"""
             cursor.execute(query,(self.agent_id,self.status))
             self.database.commit()
-            return cursor.lastrowid
+            id = cursor.lastrowid;
+            cursor.close()
+            self.database.close()
+            return id
          except mysql.connector.Error as err:
             cursor.close()
             self.database.close()
