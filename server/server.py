@@ -79,11 +79,5 @@ def register_topic(topic):
     dataService = DataService(agent, "", "")
     return dataService.insertAgent()
 
-@app.route("/v1/getTopic/<id>", methods=['GET'])
-def list_of_agents_deployment(id): #agents
-    agent = Agent(id, "","","")
-    dataService = DataService(agent,"",agent.id)
-    return dataService.get_agent_id()
-
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=3007)

@@ -9,6 +9,8 @@ from UpdateProject import UpdateProject
 from ProjectUrlInfo import ProjectUrlInfo
 import mysql.connector
 import DbConstants
+from AgentRest import AgentRest
+from DataServiceRest import DataServiceRest
 
 app = Flask(__name__)
 # Create a new user, if user already exists then return the response to select another user name else, return user id
@@ -110,6 +112,12 @@ def index():
 def file(path):
    return send_from_directory("ui",path)
 
+
+@app.route("/v1/getTopic/<project_id>", methods=['GET'])
+def list_of_agents_deployment(project_id): #agents
+    agentRest = AgentRest(project_id)
+    dataServiceRest = DataServiceRest(agentRest.project_id)
+    return dataServiceRest.get_agent_info()
 
 if __name__ == "__main__":
 	app.run(debug=True,host='0.0.0.0',port=3005)
