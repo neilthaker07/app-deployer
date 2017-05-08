@@ -14,4 +14,15 @@ angular.module('AppDeployerDashboard')
     return $http.get("/v1/" + UserService.getUserName() + "/projects/" + projectId);
   };
 
+  this.deployProject = function(id, name, url) {
+    alert('Hi');
+  };
+
+  this.deleteProject = function(id) {
+    return $http.delete("/v1/" + UserService.getUserName() + "/projects/" + id);
+  };
+
+  this.getgetAgents = function(projectId) {
+    //return $http.get("/v1/" + UserService.getUserName() + "/projects/" + projectId);
+  };
 });

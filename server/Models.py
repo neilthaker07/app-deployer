@@ -17,13 +17,22 @@ class Agent:
         self.agent_ip=agent_ip;
 
 class Deployment:
-    id=None
     agent_id=None
-    deployment_date=None
     status=None
-
-    def __init__(id, agent_id,deployment_date,status):
-        self.id=id;
-        self.agent_id=agent_id;
-        self.deployment_date=deployment_date;
-        self.status=status;
+    def __init__(self, agent_id,status):
+        self.agent_id=agent_id
+        self.status=status
+        self.database=None
+    
+    def Insert_deployer(self):
+         self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
+         cursor = self.database.cursor()
+         try:
+            query = """INSERT INTO deployment (agent_id,status) VALUES (%s,%s)"""
+            cursor.execute(query,(self.agent_id,self.status))
+            self.database.commit()
+            return cursor.lastrowid
+         except mysql.connector.Error as err:
+            cursor.close()
+            self.database.close()
+            return "err"

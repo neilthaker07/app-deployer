@@ -11,3 +11,35 @@ http://0.0.0.0:3005/v1/rash/projects
 	"projectName":"project_1_pi",
 	"projectUrl":"project1_url.git.com"
 }
+# TO insert Deploy details
+ http://0.0.0.0:3007/v1/deployment
+ {
+"agent_id":"app13",
+"status":"deploying"
+}
+{
+ 25
+}
+#To update Change to deployment status
+ http://0.0.0.0:3007/v1/change_deploy_status
+{
+"status":"deployed",
+"id":"app12"
+}
+{
+  "response": "Sucess"
+}
+
+
+Request:
+ http://0.0.0.0:3007/v1/register/topic12
+ POST
+ {"agent_ip":"172.1.1.222",
+	"agent_name":"hi_agent2222"
+}
+Response :
+19
+
+ http://0.0.0.0:3007/v1/getTopic/19
+GET 
+ [{"agent_name": "hi_agent2222", "deployment_date": "Mon, 08 May 2017 14:44:25 GMT", "id": 19, "ip": "172.1.1.222", "status": "deploy", "topic": "topic12"}]
