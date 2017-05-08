@@ -1,14 +1,6 @@
-from flask import Flask,abort,jsonify
-from flask import Flask, jsonify
+from flask import Flask
 from flask import request
-import mysql.connector
-from flask import json
 import publisher
-from Models import Deployment
-import DbConstants
-import datetime
-import requests
-from Models import Agent
 from data_service import DataService
 
 git_repo=''
