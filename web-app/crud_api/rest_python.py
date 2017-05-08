@@ -1,4 +1,4 @@
-from flask import Flask,abort,jsonify
+from flask import Flask,abort,jsonify,Response,json
 from flask import request
 from flask import request,render_template,send_file,send_from_directory
 from UserInfo import UserInfo
@@ -6,6 +6,9 @@ from Projects import Projects
 from Project import Project
 from ViewProjects import ViewProjects
 from UpdateProject import UpdateProject
+import mysql.connector
+import DbConstants
+
 
 app = Flask(__name__)
 # Create a new user, if user already exists then return the response to select another user name else, return user id
@@ -19,20 +22,24 @@ def userSignup():
 			return jsonify({'response': user_id}), 201
 		return result, 400 #here the result is not json , not sure how to return the response here (should it be json?)
 
-@app.route("/v1/<url>/getTopic",methods=["GET"])
-def get_topic(url):
-	self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-	cursor = self.database.cursor()
-	try:
-		query = """SELECT topic FROM project WHERE project_url=%s"""
-		cursor.execute(query,(self.url,))
-		row = cursor.fetchone()
-		return row
-	except mysql.connector.Error as err:
-		cursor.close()
-		self.database.close()
-		return "err"
-	
+
+@app.route("/v1/getTopic",methods=["POST"])
+def get_topic():
+	request_json = request.get_json();
+	url = request_json['git_url'];
+	print url
+	database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST,
+									   database=DbConstants.DATABASE)
+	cursor = database.cursor()
+	query = """SELECT topic FROM project WHERE project_url= '"""+url+"'"
+	print query
+	cursor.execute(query)
+	output = cursor.fetchone()
+	print output
+	result = output[0]
+	print result
+	return Response(result, status=200)
+
 
 
 
