@@ -27,7 +27,7 @@ def deploy_app():
     agent_ip=request_json['agent_ip'];
     agent_name=request_json['agent_name'];
 
-    
+
 
     return "sent-update"
 
