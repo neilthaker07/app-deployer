@@ -4,12 +4,13 @@ import shlex
 import os
 import requests
 
-TOPIC='https://github.com/rashmishrm/sample-repo'
+TOPIC='mytopic'
+GIT_URL="https://github.com/rashmishrm/sample-repo"
 SERVER = "0.0.0.0:3007"
 DISCOVER_AGENT_URL ="http://"+SERVER+"/v1/register/"+TOPIC
-DEPLOY_AGENT_URL_ ="http://"+SERVER+"/v1/deploy/"
-DEPLOY_AGENT_URL_UPDATE = "http://"+SERVER+"/v1/deploy/"
-agent_id = None
+DEPLOY_AGENT_URL ="http://"+SERVER+"/v1/deployment"
+DEPLOY_AGENT_URL_UPDATE = "http://"+SERVER+"/v1/change_deploy_status"
+agent_id = 1
 deployment_id =None
 
 
@@ -25,36 +26,43 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
     deploy()
-    os.system('sh agent_deployer.sh '+TOPIC)
+    os.system('sh agent_deployer.sh '+GIT_URL)
     update()
 
 
 def register():
+    global agent_id
     url = DISCOVER_AGENT_URL
-    request =  '{
+    request =  {
     "agent_name":"abc",
     "agent_ip":"ip"
-    }'
-    response = requests.post(url, data=request)
-    agent_id = response["agent_id"]
+    }
+    response = requests.post(url, json=request)
+    agent_id = response.text
 
 
 def deploy():
+    global agent_id
+    global deployment_id
+    print "deploying....."+agent_id
     url = DEPLOY_AGENT_URL
-    request =  '{
+    request =  {
     "agent_id":agent_id,
     "status":"deploying"
-    }'
-    response = requests.post(url, data=request)
-    deployment_id = response["deployment_id"]
+    }
+    response = requests.post(url, json=request)
+    deployment_id = response.text
+
 
 def update():
-    url = DEPLOY_AGENT_URL
-    request =  '{
-    "deployment_id":deployment_id,
+    global deployment_id
+    print "deployed updating....."+deployment_id
+    url = DEPLOY_AGENT_URL_UPDATE
+    request =  {
+    "id":deployment_id,
     "status":"deployed"
-    }'
-    response = requests.post(url, data=request)
+    }
+    requests.put(url, json=request)
 
 
 client = mqtt.Client()
