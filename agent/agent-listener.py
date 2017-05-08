@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import subprocess
 import shlex
 import os
+import socket
 import requests
 
 TOPIC='mytopic'
@@ -32,9 +33,10 @@ def on_message(client, userdata, msg):
 
 def register():
     global agent_id
+    host_name= socket.gethostname()
     url = DISCOVER_AGENT_URL
     request =  {
-    "agent_name":"abc",
+    "agent_name":host_name,
     "agent_ip":"ip"
     }
     response = requests.post(url, json=request)
