@@ -33,11 +33,12 @@ class Projects:
         except mysql.connector.Error as err:
             cursor.close()
             self.database.close()
-            return err
+            return "err"
+
     def get_project_id(self):
         self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = self.database.cursor()
-        query = """SELECT project_id FROM project WHERE user_name = %s AND project_URL=%s"""
+        query = """SELECT project FROM project WHERE user_name = %s AND project_URL=%s"""
         cursor.execute(query, (self.username,self.project_URL))
         row = cursor.fetchone()
         cursor.close()

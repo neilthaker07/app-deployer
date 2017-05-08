@@ -36,6 +36,8 @@ class Project:
       self.database.close()
       return row
 
+    
+    
     def DeleteProjectSpecific(self):
       cursor = self.database.cursor()
       try:

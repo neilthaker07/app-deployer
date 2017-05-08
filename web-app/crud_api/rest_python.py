@@ -16,8 +16,25 @@ def userSignup():
 		result = user.insertUser()
 		if(result == '201'):
 			user_id = user.get_user_id()
-			return jsonify({'response': user_id }), 201
+			return jsonify({'response': user_id}), 201
 		return result, 400 #here the result is not json , not sure how to return the response here (should it be json?)
+
+@app.route("/v1/<url>/getTopic",methods=["GET"])
+def get_topic(url):
+	self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
+	cursor = self.database.cursor()
+	try:
+		query = """SELECT topic FROM project WHERE project_url=%s"""
+		cursor.execute(query,(self.url,))
+		row = cursor.fetchone()
+		return row
+	except mysql.connector.Error as err:
+		cursor.close()
+		self.database.close()
+		return "err"
+	
+
+
 
 @app.route("/v1/userLogin",methods=['POST'])
 def userLogin():
