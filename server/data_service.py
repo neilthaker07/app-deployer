@@ -21,7 +21,7 @@ class DataService:
         except mysql.connector.Error as err:
             cursor.close()
             self.database.close()
-            return err
+            return "err"
 
     def get_agent_id(id):
         cursor = self.database.cursor()
