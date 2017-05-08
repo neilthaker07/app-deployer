@@ -1,4 +1,5 @@
 from flask import Flask,abort,jsonify
+from flask import Flask, jsonify
 from flask import request
 import mysql.connector
 from flask import json
@@ -6,23 +7,38 @@ import publisher
 from Models import Deployment
 import DbConstants
 import datetime
+import requests
 
 git_repo=''
+
+data_service_rest = "http://0.0.0.0:3005/v1/getTopic"
 
 app = Flask(__name__)
 @app.route("/")
 def hello():
     return "Hello from Dockerized Flask App!!"
 
+
+def getTopic(gitUrl):
+    url = data_service_rest
+    data = { "git_url": gitUrl }
+    response= requests.post(url, json=data)
+    res = response.text
+    print '**********'
+    print res
+    return res
+
+
 @app.route("/v1/git-updates", methods=['POST'])
 def deploy_app():
-    request_json=request.get_json() 
-
+    request_json=request.get_json()
     repository=request_json['repository']
     git_url=repository['url']
-
-    publisher.publish(git_url)
+    topic = getTopic(git_url)
+    publisher.publish(topic)
     return "sent-update"
+
+
 #Rest_endpoint for inserting deployment status
 @app.route("/v1/deployment",methods=['POST'])
 def insert_deployer():
@@ -51,15 +67,15 @@ def deploy_status():
         except mysql.connector.Error as err:
             cursor.close()
             database.close()
-            return jsonify({'response': "Error"}),500   
+            return jsonify({'response': "Error"}),500
 
-# @app.route("/v1/register/<topic>", methods=['POST'])
-# def deploy_app():
-#     request_json=request.get_json() 
+@app.route("/v1/register/<topic>", methods=['POST'])
+def resister_topic():
+    request_json=request.get_json()
+    agent_ip=request_json['agent_ip']
+    agent_name=request_json['agent_name'];
+    return "sent-update"
 
-#     agent_ip=request_json['agent_ip']
-#     agent_name=request_json['agent_name'] 
-#     return "sent-update"
 
 
 

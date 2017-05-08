@@ -1,4 +1,4 @@
-from flask import Flask,abort,jsonify
+from flask import Flask,abort,jsonify,Response,json
 from flask import request
 from flask import request,render_template,send_file,send_from_directory
 from UserInfo import UserInfo
@@ -6,6 +6,9 @@ from Projects import Projects
 from Project import Project
 from ViewProjects import ViewProjects
 from UpdateProject import UpdateProject
+from ProjectUrlInfo import ProjectUrlInfo
+import mysql.connector
+import DbConstants
 
 app = Flask(__name__)
 # Create a new user, if user already exists then return the response to select another user name else, return user id
@@ -18,22 +21,6 @@ def userSignup():
 			user_id = user.get_user_id()
 			return jsonify({'response': user_id}), 201
 		return result, 400 #here the result is not json , not sure how to return the response here (should it be json?)
-
-@app.route("/v1/<url>/getTopic",methods=["GET"])
-def get_topic(url):
-	self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-	cursor = self.database.cursor()
-	try:
-		query = """SELECT topic FROM project WHERE project_url=%s"""
-		cursor.execute(query,(self.url,))
-		row = cursor.fetchone()
-		return row
-	except mysql.connector.Error as err:
-		cursor.close()
-		self.database.close()
-		return "err"
-	
-
 
 
 @app.route("/v1/userLogin",methods=['POST'])
@@ -90,11 +77,27 @@ def viewUpdateDeleteProject(user_name,project_id):
 			return jsonify({'response': result})
 		return jsonify({'response': "error"}),500
 
-# @app.route("/v1/<user_name>/projects/<project_url>")
-# def get_project_details(usr_name,project_url):
-# 	project = Project(user_name,project_url)
-# 	result = project.get_project_details()
 
+@app.route("/v1/<user_name>/projects/<project_id>/deploy",methods=['POST'])
+def deployproject(user_name, project_id):
+	if request.method == 'POST':
+		projInfoUrl = ProjectUrlInfo(request)
+		result=projInfoUrl.triggerDeployment()
+		return result.text,result.status_code
+
+@app.route("/v1/getTopic",methods=["POST"])
+def get_topic():
+	request_json = request.get_json();
+	url = request_json['git_url'];
+	print url
+	database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST,
+									   database=DbConstants.DATABASE)
+	cursor = database.cursor()
+	query = """SELECT topic FROM project WHERE project_url= '"""+url+"""'"""
+	cursor.execute(query)
+	output = cursor.fetchone()
+	result = output[0]
+	return Response(result, status=200)
 
 
 @app.route("/")

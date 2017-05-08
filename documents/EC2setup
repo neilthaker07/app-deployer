@@ -42,3 +42,7 @@ EC2 instance commands :
   153   sudo python setup.py install
   154  cd ..
   155  python rest_python.py
+
+
+pip install paho-mqtt
+pip install requests

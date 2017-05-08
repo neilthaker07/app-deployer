@@ -23,4 +23,11 @@ angular.module('AppDeployerDashboard')
         });
       });
     };
+
+    $scope.viewAgents = function(id){
+      ProjectService.getAgents(id).then(function(response){
+        alert('Get list');
+      });
+    };
+
 });

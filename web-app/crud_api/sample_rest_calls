@@ -11,3 +11,21 @@ http://0.0.0.0:3005/v1/rash/projects
 	"projectName":"project_1_pi",
 	"projectUrl":"project1_url.git.com"
 }
+# TO insert Deploy details
+ http://0.0.0.0:3007/v1/deployment
+ {
+"agent_id":"app13",
+"status":"deploying"
+}
+{
+ 25
+}
+#To update Change to deployment status
+ http://0.0.0.0:3007/v1/change_deploy_status
+{
+"status":"deployed",
+"id":"app12"
+}
+{
+  "response": "Sucess"
+}
