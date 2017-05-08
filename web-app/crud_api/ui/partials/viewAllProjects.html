@@ -13,7 +13,7 @@
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                 <table class="table table-hover">
                   <tr><th>Project Name</th><th>Github URL</th><th>Actions</th></tr>
-                  <tr ng-repeat="project in projectsList"><td>{{project.project_name}}</td><td>{{project.project_url}}</td><td><button ng-click="deployProject(project.project_id, project.project_name, project.project_url)">Deploy</button> <button ng-click="deleteProject(project.project_id)">Delete</button> <button ng-click="viewProject(project.project_id)" >View</button></td></tr>
+                  <tr ng-repeat="project in projectsList"><td>{{project.project_name}}</td><td>{{project.project_url}}</td><td><button ng-click="deployProject(project.project_id, project.project_name, project.project_url)">Deploy</button> <button ng-click="deleteProject(project.project_id)">Delete</button> <button ng-click="viewProject(project.project_id)">View</button> <button ng-click="viewAgents(project.project_id)">Agents</button></td></tr>
                 </table>
             </div>
         </div>
