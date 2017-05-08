@@ -32,7 +32,8 @@ def insert_deployer():
         # print(json_request_body['status'])
         deployer = Deployment(json_request_body['agent_id'],json_request_body['status'])
         result=deployer.Insert_deployer()
-        return jsonify({'response': result}),201 
+        print result
+        return str(result),201
 
 #rest_endpoit to update deployment status
 @app.route("/v1/change_deploy_status",methods=['PUT'])
