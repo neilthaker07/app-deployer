@@ -93,23 +93,6 @@ def deployproject(user_name, project_id):
 		result=projInfoUrl.triggerDeployment()
 		return result.text,result.status_code
 
-@app.route("/v1/getTopic",methods=["POST"])
-def get_topic():
-	request_json = request.get_json();
-	url = request_json['git_url'];
-	print url
-	database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST,
-									   database=DbConstants.DATABASE)
-	cursor = database.cursor()
-	query = """SELECT topic FROM project WHERE project_url= '"""+url+"""'"""
-	cursor.execute(query)
-	output = cursor.fetchone()
-	cursor.close()
-	database.close()
-	result = output[0]
-	return Response(result, status=200)
-
-
 @app.route("/")
 def index():
    return send_file("index.html")
