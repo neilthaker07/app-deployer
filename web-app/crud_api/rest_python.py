@@ -22,42 +22,6 @@ def userSignup():
 			return jsonify({'response': user_id}), 201
 		return result, 400 #here the result is not json , not sure how to return the response here (should it be json?)
 
-<<<<<<< HEAD
-@app.route("/v1/<url>/getTopic",methods=["GET"])
-def get_topic(url):
-	self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-	cursor = self.database.cursor()
-	try:
-		query = """SELECT topic FROM project WHERE project_url=%s"""
-		cursor.execute(query,(self.url,))
-		row = cursor.fetchone()
-		return row
-	except mysql.connector.Error as err:
-		cursor.close()
-		self.database.close()
-		return "err"
-=======
-
-@app.route("/v1/getTopic",methods=["POST"])
-def get_topic():
-	request_json = request.get_json();
-	url = request_json['git_url'];
-	print url
-	database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST,
-									   database=DbConstants.DATABASE)
-	cursor = database.cursor()
-	query = """SELECT topic FROM project WHERE project_url= '"""+url+"'"
-	print query
-	cursor.execute(query)
-	output = cursor.fetchone()
-	print output
-	result = output[0]
-	print result
-	return Response(result, status=200)
->>>>>>> c5a7e8ed6058be197db1ea2b766896d7944bad12
-
-
-
 
 @app.route("/v1/userLogin",methods=['POST'])
 def userLogin():
@@ -120,11 +84,20 @@ def deployproject(user_name, project_id):
 		projInfoUrl = ProjectUrlInfo(request)
 		result=projInfoUrl.triggerDeployment()
 		return result.text,result.status_code
-# @app.route("/v1/<user_name>/projects/<project_url>")
-# def get_project_details(usr_name,project_url):
-# 	project = Project(user_name,project_url)
-# 	result = project.get_project_details()
 
+@app.route("/v1/getTopic",methods=["POST"])
+def get_topic():
+	request_json = request.get_json();
+	url = request_json['git_url'];
+	print url
+	database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST,
+									   database=DbConstants.DATABASE)
+	cursor = database.cursor()
+	query = """SELECT topic FROM project WHERE project_url= '"""+url+"""'"""
+	cursor.execute(query)
+	output = cursor.fetchone()
+	result = output[0]
+	return Response(result, status=200)
 
 
 @app.route("/")

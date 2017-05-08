@@ -24,6 +24,8 @@ def getTopic(gitUrl):
     data = { "git_url": gitUrl }
     response= requests.post(url, json=data)
     res = response.text
+    print '**********'
+    print res
     return res
 
 
@@ -64,7 +66,7 @@ def deploy_status():
         except mysql.connector.Error as err:
             cursor.close()
             database.close()
-            return jsonify({'response': "Error"}),500   
+            return jsonify({'response': "Error"}),500
 
 @app.route("/v1/register/<topic>", methods=['POST'])
 def resister_topic():
