@@ -12,6 +12,7 @@ done
 foldername=$(echo $folder| cut -d'/' -f 1)
 
 if [ "$foldername" == "$repo_name" ]; then
+	kill $(ps aux | grep 'app.py' | awk '{print $2}')
 	cd $repo_name 
 	git pull
 else
