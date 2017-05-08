@@ -6,7 +6,7 @@ import requests
 
 TOPIC='mytopic'
 GIT_URL="https://github.com/rashmishrm/sample-repo"
-SERVER = "0.0.0.0:3007"
+SERVER = "0.0.0.0:3005"
 DISCOVER_AGENT_URL ="http://"+SERVER+"/v1/register/"+TOPIC
 DEPLOY_AGENT_URL ="http://"+SERVER+"/v1/deployment"
 DEPLOY_AGENT_URL_UPDATE = "http://"+SERVER+"/v1/change_deploy_status"

@@ -1,6 +1,6 @@
 import mysql.connector
 from flask import json
-import datetime
+import time
 import collections
 import DbConstants
 
@@ -18,7 +18,7 @@ class Projects:
         self.project_URL = self.jsonObject['projectUrl']
         self.username=username
         print self.username
-        self.topic = self.projectName + str(datetime.datetime.now())
+        self.topic = self.projectName + str(int(round(time.time() * 1000)))
         self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
 
     # insert new project
