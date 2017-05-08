@@ -6,6 +6,7 @@ from Projects import Projects
 from Project import Project
 from ViewProjects import ViewProjects
 from UpdateProject import UpdateProject
+from ProjectUrlInfo import ProjectUrlInfo
 
 app = Flask(__name__)
 # Create a new user, if user already exists then return the response to select another user name else, return user id
@@ -32,7 +33,7 @@ def get_topic(url):
 		cursor.close()
 		self.database.close()
 		return "err"
-	
+
 
 
 
@@ -90,6 +91,13 @@ def viewUpdateDeleteProject(user_name,project_id):
 			return jsonify({'response': result})
 		return jsonify({'response': "error"}),500
 
+
+@app.route("/v1/<user_name>/projects/<project_id>/deploy",methods=['POST'])
+def deployproject(user_name, project_id):
+	if request.method == 'POST':
+		projInfoUrl = ProjectUrlInfo(request)
+		result=projInfoUrl.triggerDeployment()
+		return result.text,result.status_code
 # @app.route("/v1/<user_name>/projects/<project_url>")
 # def get_project_details(usr_name,project_url):
 # 	project = Project(user_name,project_url)
