@@ -2,7 +2,7 @@ import mysql.connector
 from flask import json
 import collections
 import DbConstants
-import datetime
+
 
 class Agent:
     id=None
@@ -22,22 +22,19 @@ class Deployment:
     def __init__(self, agent_id,status):
         self.agent_id=agent_id
         self.status=status
-        self.deployment_date=datetime.datetime.now()
+        self.database=None
     
     def Insert_deployer(self):
-         database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-         cursor = database.cursor()
+         self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
+         cursor = self.database.cursor()
          try:
-            query = """INSERT INTO deployement (agent_id,status,deployment_date) VALUES (%s,%s,%s)"""
-            cursor.execute(query, (self.agent_id,self.status,self.deployment_date))
-            database.commit()
-            query2 = """SELECT id FROM deployment WHERE agent_id=%s"""
-            cursor.execute(query,(self.agent_id))
-            row = cursor.fetchone()
-            return row
+            query = """INSERT INTO deployment (agent_id,status) VALUES (%s,%s)"""
+            cursor.execute(query,(self.agent_id,self.status))
+            self.database.commit()
+            return cursor.lastrowid
          except mysql.connector.Error as err:
             cursor.close()
-            database.close()
+            self.database.close()
             return "err"
 
 
