@@ -18,7 +18,7 @@ http://0.0.0.0:3005/v1/rash/projects
 "status":"deploying"
 }
 {
-  "response": 19
+ 25
 }
 #To update Change to deployment status
  http://0.0.0.0:3007/v1/change_deploy_status
