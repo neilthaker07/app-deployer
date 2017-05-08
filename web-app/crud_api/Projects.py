@@ -29,6 +29,8 @@ class Projects:
             cursor.execute(query, (self.username,self.projectName, self.project_URL, self.topic))
             self.database.commit()
             result = self.get_project_id()
+            cursor.close()
+            self.database.close()
             return result
         except mysql.connector.Error as err:
             cursor.close()
@@ -44,11 +46,3 @@ class Projects:
         cursor.close()
         self.database.close()
         return row
-
-    def getTopic(self,url):
-        database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-        cursor = database.cursor()
-        query = """SELECT topic FROM project WHERE project_URL=%s"""
-        cursor.execute(query,url)
-        output = cursor.fetchone()
-        return output

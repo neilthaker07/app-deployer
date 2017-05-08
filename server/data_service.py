@@ -21,6 +21,8 @@ class DataService:
             cursor.execute(query, (self.agent.topic, self.agent.agent_name, self.agent.agent_ip))
             self.database.commit()
             result = cursor.lastrowid
+            cursor.close()
+            self.database.close()
             return str(result)
         except mysql.connector.Error as err:
             cursor.close()

@@ -98,6 +98,8 @@ def get_topic():
 	query = """SELECT topic FROM project WHERE project_url= '"""+url+"""'"""
 	cursor.execute(query)
 	output = cursor.fetchone()
+	cursor.close()
+	database.close()
 	result = output[0]
 	return Response(result, status=200)
 
