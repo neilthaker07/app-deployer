@@ -29,3 +29,17 @@ http://0.0.0.0:3005/v1/rash/projects
 {
   "response": "Sucess"
 }
+
+
+Request:
+ http://0.0.0.0:3007/v1/register/topic12
+ POST
+ {"agent_ip":"172.1.1.222",
+	"agent_name":"hi_agent2222"
+}
+Response :
+19
+
+ http://0.0.0.0:3007/v1/getTopic/19
+GET 
+ [{"agent_name": "hi_agent2222", "deployment_date": "Mon, 08 May 2017 14:44:25 GMT", "id": 19, "ip": "172.1.1.222", "status": "deploy", "topic": "topic12"}]
