@@ -8,13 +8,13 @@ class Agent:
     id=None
     topic=None
     agent_name=None
-    ip=None
+    agent_ip=None
 
-    def __init__(self, id,topic,agent_name,ip):
+    def __init__(self, id, topic, agent_name, agent_ip):
         self.id=id;
         self.topic=topic;
         self.agent_name=agent_name;
-        self.ip=ip;
+        self.agent_ip=agent_ip;
 
 class Deployment:
     id=None
