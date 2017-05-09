@@ -21,6 +21,10 @@ config(function($routeProvider) {
       templateUrl: 'ui/partials/viewProject.html',
       controller: 'ViewProjectController'
     })
+    .when("/project/:projectId/agents", {
+      templateUrl: 'ui/partials/viewAgents.html',
+      controller: 'ViewAgentsController'
+    })
     .when("/create", {
       templateUrl: 'ui/partials/addProject.html',
       controller: 'AddProjectController'

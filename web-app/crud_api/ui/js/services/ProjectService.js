@@ -15,14 +15,14 @@ angular.module('AppDeployerDashboard')
   };
 
   this.deployProject = function(id, name, url) {
-    alert('Hi');
+    return $http.post("/v1/" + UserService.getUserName() + "/projects/" + id +"/deploy", {"url":url});
   };
 
   this.deleteProject = function(id) {
     return $http.delete("/v1/" + UserService.getUserName() + "/projects/" + id);
   };
 
-  this.getgetAgents = function(projectId) {
-    //return $http.get("/v1/" + UserService.getUserName() + "/projects/" + projectId);
+  this.getAgents = function(projectId) {
+    return $http.get("/v1/" + UserService.getUserName() + "/projects/" + projectId + "/agents");
   };
 });

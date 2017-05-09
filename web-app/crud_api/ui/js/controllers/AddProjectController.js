@@ -5,5 +5,5 @@ angular.module('AppDeployerDashboard')
    ProjectService.addProject($scope.projectName, $scope.githubURL).then(function(response){
      $location.path('allprojects');
    });
- }
+ };
 });

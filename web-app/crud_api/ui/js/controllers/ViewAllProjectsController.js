@@ -11,7 +11,10 @@ angular.module('AppDeployerDashboard')
 
   $scope.deployProject = function(id, name, url){
     ProjectService.deployProject(id, name, url).then(function(response){
-      alert('Started deployment on all the registered agents (raspberry pi).');
+      alert('Started deployment on all the registered agents.');
+    },
+    function(response){
+      alert('Oops! Something went wrong. Please try again in sometime or contact the administrator.');
     });
   };
 
@@ -25,9 +28,7 @@ angular.module('AppDeployerDashboard')
     };
 
     $scope.viewAgents = function(id){
-      ProjectService.getAgents(id).then(function(response){
-        alert('Get list');
-      });
+      $location.path('project/'+id+'/agents');
     };
 
 });
