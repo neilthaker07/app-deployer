@@ -6,6 +6,8 @@ $scope.loadAgents = function() {
     $scope.agentsList = response.data;
   });
 };
+stop = $interval(function() {
+            $scope.loadAgents();
+          }, 1000);
 
-$scope.loadAgents();
 });
