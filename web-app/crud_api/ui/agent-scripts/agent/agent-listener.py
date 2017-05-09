@@ -5,8 +5,8 @@ import os
 import socket
 import requests
 
-TOPIC='sample1494287811506'
-GIT_URL="https://github.com/rashmishrm/sample-repo"
+TOPIC='<YOUR_TOPIC>'
+GIT_URL="<YOUR_GIT_URL>"
 SERVER = "52.52.67.116:3005"
 DISCOVER_AGENT_URL ="http://"+SERVER+"/v1/register/"+TOPIC
 DEPLOY_AGENT_URL ="http://"+SERVER+"/v1/deployment"
