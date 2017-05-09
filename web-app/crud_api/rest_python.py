@@ -119,8 +119,8 @@ def file(path):
    return send_from_directory("ui",path)
 
 
-@app.route("/v1/getTopic/<project_id>", methods=['GET'])
-def list_of_agents_deployment(project_id): #agents
+@app.route("/v1/<user_name>/projects/<project_id>/agents", methods=['GET'])
+def list_of_agents_deployment(user_name, project_id): #agents
     agentRest = AgentRest(project_id)
     dataServiceRest = DataServiceRest(agentRest.project_id)
     return dataServiceRest.get_agent_info()
