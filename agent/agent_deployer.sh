@@ -12,7 +12,7 @@ done
 foldername=$(echo $folder| cut -d'/' -f 1)
 
 if [ "$foldername" == "$repo_name" ]; then
-	kill $(ps aux | grep 'app.py' | awk '{print $2}')
+	for pid in $(ps -ef | awk '/app.py/ {print $2}'); do kill -9 $pid; done
 	rm -rf $repo_name
 	git clone $git_url
 	cd $repo_name
