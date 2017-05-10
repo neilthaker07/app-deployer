@@ -20,21 +20,17 @@ http://52.52.67.116:3007/v1/git-updates
 
 Team 6:
 
-Team Members: 
-Bhakti Shah
-Neil Thaker
-Nishant Rathi
-Rashmi Sharma
+Team Members: Bhakti Shah, Neil Thaker, Nishant Rathi, Rashmi Sharma
 
 Individual Contribution:
 --Team Work:
-  >Tasks 1.) Design database schema
-         2.) Design Architecture
+  >Tasks 1.) Design database schema<br />
+         2.) Design Architecture <br />
          3.)  Test 
    
 --Bhakti Shah:
   >Tasks:
-        : 
+         
 
 --Neil Thaker:
   >Tasks: 
