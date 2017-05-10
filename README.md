@@ -22,24 +22,36 @@ Team 6:
 
 Team Members: Bhakti Shah, Neil Thaker, Nishant Rathi, Rashmi Sharma
 
-Individual Contribution:
+
 --Team Work:
-  >Tasks<br/> 1.) Design database schema<br />
+  > Team Tasks<br/> 1.) Design database schema<br />
          2.) Design Architecture <br />
-         3.)  Test 
-   
---Bhakti Shah:<br />
-  >Tasks:
+         3.) Test <br />
+         4.) AWS Deployment<br />
          
+--Individual Contribution:
 
+--Bhakti Shah:<br />
+  >Tasks<br />
+   - Rest Api endpoints to implement crud operation for projects <br />
+   - Script for app deployer in agent 
+             
 --Neil Thaker:<br />
-  >Tasks: 
-        : 
-
+  >Tasks<br />
+    - Rest Api Crud operation for agent and deployer management <br />
+    - Script for app deployer in agent
+       
 --Nishant Rathi:<br />
-  >Tasks:
-
+  >Tasks:<br />
+    - UI implementation<br />
+    - Rest endpoints for ui integration 
+    
 --Rashmi Sharma:<br />
-  >Tasks:
+  >Tasks:<br />
+  - Implementation of pub sub model<br />
+  - UI implementation<<br />
+  - Server scripting
+ 
+  
 
 
