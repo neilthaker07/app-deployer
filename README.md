@@ -15,3 +15,31 @@ http://52.52.67.116:3005/#!/
 http://52.52.67.116:3007/v1/git-updates
 
 ![My Image](https://github.com/rashmishrm/app-deployer/blob/master/webhook.png)
+
+
+
+Team 6:
+
+Team Members: Bhakti Shah, Neil Thaker, Nishant Rathi, Rashmi Sharma
+
+Individual Contribution:
+--Team Work:
+  >Tasks<br/> 1.) Design database schema<br />
+         2.) Design Architecture <br />
+         3.)  Test 
+   
+--Bhakti Shah:<br />
+  >Tasks:
+         
+
+--Neil Thaker:<br />
+  >Tasks: 
+        : 
+
+--Nishant Rathi:<br />
+  >Tasks:
+
+--Rashmi Sharma:<br />
+  >Tasks:
+
+
