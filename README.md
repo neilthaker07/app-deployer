@@ -28,9 +28,9 @@ Rashmi Sharma
 
 Individual Contribution:
 --Team Work:
-  >Tasks: Design database schema
-        : Design Architecture
-        : Test 
+  >Tasks 1.) Design database schema
+         2.) Design Architecture
+         3.)  Test 
    
 --Bhakti Shah:
   >Tasks:
