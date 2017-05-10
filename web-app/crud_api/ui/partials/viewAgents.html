@@ -13,7 +13,7 @@
                 <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                 <table class="table table-hover">
                   <tr><th>Agent Name</th><th>Status</th><th>Last Deployed</th></tr>
-                  <tr ng-repeat="agent in agentsList"><td>{{agent.agent_name}}</td><td><button ng-show="agent.status=='deploying'" class="btn btn-warning">Deploying</button><button ng-show="agent.status=='deployed'" class="btn btn-warning">Deployed</button></td><td>{{agent.deployment_date}}</td></tr>
+                  <tr ng-repeat="agent in agentsList"><td>{{agent.agent_name}}</td><td><button ng-show="agent.status=='deploying'" class="btn btn-warning">Deploying</button><button ng-show="agent.status=='deployed'" class="btn btn-success">Deployed</button></td><td>{{agent.deployment_date}}</td></tr>
                 </table>
             </div>
         </div>
