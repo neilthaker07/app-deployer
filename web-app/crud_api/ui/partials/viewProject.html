@@ -1,19 +1,32 @@
 <!-- Contact Section -->
 <section id="create">
     <div class="container">
-        <div class="row">
-          <div class="jumbotron">
-<h3><small>Project Name</small> {{projectData.response[1]}}</h3>
-<h3><small>URL</small> {{projectData.response[2]}} </h3>
-<h3><small>Topic</small> {{projectData.response[3]}} </h3>
-<h3>Setup your IoT devices</h3>
-<p>
-  1. Install file agent.py from here.<br/>
-  2. Execute it in your IoT device and make sure whenever your IoT boots up this script is executed.<br/>
-  3. Test your application.<br/>
-</p>
-<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-</div>
-        </div>
+      <h6>Project Details</h6>
+<table class="table table-striped">
+  <tr><td>Project Name</td><td><span class="label label-info">{{projectData.response[1]}}</span></td></tr>
+  <tr><td>URL</td><td><span class="label label-info">{{projectData.response[2]}}</span></td></tr>
+  <tr><td>Topic</td><td><span class="label label-info">{{projectData.response[3]}}</span></td></tr>
+  <tr><td>Webhook Setup</td><td></td></tr>
+  <tr><td>Setup IoT device</td><td>
+    1. Download the zip folder <a href="ui/agent-scripts/agent.zip" target="_blank"><span class="label label-warning">Download</span></a><br/>
+    2. Unzip the folder in your iot device.<br/>
+    3. Open & edit following parameters in the file agent-listener.py <br/>
+    <div class="jumbotron">
+      TOPIC='{{projectData.response[3]}}'<br/>
+      GIT_URL="{{projectData.response[2]}}"</br>
     </div>
+    2. Execute the following command:<br/>
+    <div class="jumbotron">
+      sh start-agent.sh
+    </div>
+    3. Test your application.<br/>
+
+
+
+  </td></tr>
+
+
+</table>
+
+</div>
 </section>
