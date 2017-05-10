@@ -32,7 +32,7 @@ class UserInfo:
             except mysql.connector.Error as err:
                 cursor.close()
                 cnx.close()
-                return err
+                return "err"
         cnx.close()
         cursor.close()
         return '201'
