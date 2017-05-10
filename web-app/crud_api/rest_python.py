@@ -130,10 +130,12 @@ def deploy_status():
         database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
         cursor = database.cursor()
         try:
-            query = """UPDATE deployment SET status=%s WHERE id=%s"""
-            cursor.execute(query, (json_request_body['status'],json_request_body['id']))
-            database.commit()
-            return jsonify({'response': "Sucess"}),200
+			query = """UPDATE deployment SET status=%s WHERE id=%s"""
+			cursor.execute(query, (json_request_body['status'],json_request_body['id']))
+			database.commit()
+			cursor.close()
+			database.close()
+			return jsonify({'response': "Sucess"}),200
         except mysql.connector.Error as err:
             cursor.close()
             database.close()

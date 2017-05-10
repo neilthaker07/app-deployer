@@ -23,6 +23,7 @@ class UserInfo:
         if row is not None:
             print 'pls select another name'
             cursor.close()
+            cnx.close()
             return 'pls select another name'
         else:
             try:
@@ -33,8 +34,8 @@ class UserInfo:
                 cursor.close()
                 cnx.close()
                 return "err"
-        cnx.close()
         cursor.close()
+        cnx.close()
         return '201'
     #login
     def loginUser(self):
