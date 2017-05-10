@@ -24,22 +24,22 @@ Team Members: Bhakti Shah, Neil Thaker, Nishant Rathi, Rashmi Sharma
 
 Individual Contribution:
 --Team Work:
-  >Tasks 1.) Design database schema<br />
+  >Tasks<br/> 1.) Design database schema<br />
          2.) Design Architecture <br />
          3.)  Test 
    
---Bhakti Shah:
+--Bhakti Shah:<br />
   >Tasks:
          
 
---Neil Thaker:
+--Neil Thaker:<br />
   >Tasks: 
         : 
 
---Nishant Rathi:
+--Nishant Rathi:<br />
   >Tasks:
 
---Rashmi Sharma:
+--Rashmi Sharma:<br />
   >Tasks:
 
 
