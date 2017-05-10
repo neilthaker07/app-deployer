@@ -28,19 +28,21 @@ class Projects:
             query = """INSERT INTO project (user_name,project_name,project_url,topic) VALUES (%s,%s,%s,%s)"""
             cursor.execute(query, (self.username,self.projectName, self.project_URL, self.topic))
             self.database.commit()
-            result = self.get_project_id()
+            result = self.get_project_id(cursor)
             cursor.close()
             self.database.close()
             return result
         except mysql.connector.Error as err:
+            print "err"
             cursor.close()
             self.database.close()
             return "err"
 
-    def get_project_id(self):
-        self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
-        cursor = self.database.cursor()
-        query = """SELECT project FROM project WHERE user_name = %s AND project_url=%s"""
+    def get_project_id(self,cursor):
+        # self.database = mysql.connector.connect(user=DbConstants.USER, passwd=DbConstants.PASSWORD, host=DbConstants.HOST, database=DbConstants.DATABASE)
+        # cursor = self.database.cursor()
+        print "in project_id"
+        query = """SELECT project_id FROM project WHERE user_name = %s AND project_url=%s"""
         cursor.execute(query, (self.username,self.project_URL))
         row = cursor.fetchone()
         cursor.close()
