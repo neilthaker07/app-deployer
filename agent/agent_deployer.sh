@@ -11,15 +11,10 @@ done
 
 foldername=$(echo $folder| cut -d'/' -f 1)
 
-if [ "$foldername" == "$repo_name" ]; then
-	for pid in $(ps -ef | awk '/app.py/ {print $2}'); do kill -9 $pid; done
-	rm -rf $repo_name
-	git clone $git_url
-	cd $repo_name
-else
-	git clone $git_url
-	cd $repo_name
-fi
+for pid in $(ps -ef | awk '/app.py/ {print $2}'); do kill -9 $pid; done
+rm -rf $repo_name
+git clone $git_url
+cd $repo_name
 
 while read install_value; do
 	pip install $install_value
