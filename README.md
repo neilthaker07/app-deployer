@@ -33,7 +33,7 @@ Team Members: Bhakti Shah, Neil Thaker, Nishant Rathi, Rashmi Sharma
 
 --Bhakti Shah:<br />
   >Tasks<br />
-   - Rest Api endpoints to implement crud operation for projects <br />
+   - Rest Api endpoints to implement crud operation for projects and user SignUp and logIn <br />
    - Script for app deployer in agent 
              
 --Neil Thaker:<br />
