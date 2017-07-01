@@ -1,7 +1,7 @@
 # app-deployer
 App-deployer is python based app for deploying git code on IOT devices automatically.
 
-Track progress using : https://waffle.io/rashmishrm/app-deployer
+Demo : https://www.youtube.com/watch?v=Fcj-7DIUyM4&t=1s 
 
 # Architecture
 
